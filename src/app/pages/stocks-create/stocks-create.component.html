@@ -1,0 +1,26 @@
+
+<mat-card>
+    <mat-card-title>Novo produto</mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="código" 
+            [(ngModel)]="stock.cod"
+            name="cod">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="nome"  
+            [(ngModel)]="stock.name"
+            name="name">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="descrição"  
+            [(ngModel)]="stock.description"
+            name="description">
+        </mat-form-field>
+    </form>
+
+</mat-card>
+
+<button mat-raised-button color="primary" (click)="createStock('produto criado.')">Salvar</button>
+<button mat-raised-button (click)="cancelar()">Cancelar</button>
+
