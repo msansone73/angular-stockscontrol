@@ -21,9 +21,18 @@
         <td mat-cell *matCellDef="let stock"> {{stock.description}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="action">
+    <ng-container matColumnDef="actiondelete">
         <th mat-header-cell  *matHeaderCellDef></th>
-        <td mat-cell *matCellDef="let stock"> <button (click)="delete(stock.id)" >delete</button> </td>
+        <td mat-cell *matCellDef="let stock"> 
+            <button (click)="delete(stock.id)" >delete</button> 
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actionupdate">
+        <th mat-header-cell  *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let stock"> 
+            <button (click)="goUpdate(stock.id)" >update</button> 
+        </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

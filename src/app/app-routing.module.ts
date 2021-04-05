@@ -1,3 +1,4 @@
+import { StocksUpdateComponent } from './pages/stocks-update/stocks-update.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
@@ -8,6 +9,7 @@ const routes: Routes = [
   {  path: "", component: HomeComponent  },
   {  path: "stocks", component: StocksComponent  },
   {  path: "stocks-create", component: StocksCreateComponent  },
+  {  path: "stocks-update/:id" , component: StocksUpdateComponent}
 
 ];
 

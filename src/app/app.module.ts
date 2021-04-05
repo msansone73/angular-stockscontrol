@@ -20,6 +20,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { MatCardModule } from '@angular/material/card';
 import { StocksReadComponent } from './pages/stocks-read/stocks-read.component'
 import {MatTableModule} from '@angular/material/table';
+import { StocksUpdateComponent } from './pages/stocks-update/stocks-update.component';
 
 
 
@@ -31,7 +32,8 @@ import {MatTableModule} from '@angular/material/table';
     HomeComponent,
     TitleComponent,
     StocksCreateComponent,
-    StocksReadComponent
+    StocksReadComponent,
+    StocksUpdateComponent
   ],
   imports: [
     BrowserModule,

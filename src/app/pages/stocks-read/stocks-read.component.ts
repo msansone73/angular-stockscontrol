@@ -1,6 +1,7 @@
 import { StockService } from './../../services/stock.service';
 import { Component, OnInit } from '@angular/core';
 import { Stock } from 'src/app/model/stock.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-stocks-read',
@@ -10,9 +11,10 @@ import { Stock } from 'src/app/model/stock.model';
 export class StocksReadComponent implements OnInit {
 
   stocks: Stock[]
-  displayedColumns: string[] = ['id','cod', 'name', 'description', 'action'];
+  displayedColumns: string[] = ['id','cod', 'name', 'description', 'actiondelete', 'actionupdate'];
 
-  constructor(private stockService : StockService) { }
+  constructor(private stockService : StockService, 
+              private router: Router) { }
 
   ngOnInit(): void {
     this.carrega()
@@ -28,6 +30,11 @@ export class StocksReadComponent implements OnInit {
 
   delete(id: number):void{
     this.stockService.delete(id).subscribe(()=>this.carrega())
+  }
+
+  goUpdate(id:number):void {
+    //this.router.navigate(["stocks-update", id])
+    this.router.navigate(['stocks-update', id])
   }
 
 }

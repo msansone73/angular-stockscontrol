@@ -32,8 +32,16 @@ export class StockService {
     return this.http.get<Stock[]>(this.baseUrl)
   }
 
+  readById(id: number):Observable<Stock>{
+    return this.http.get<Stock>(this.baseUrl+"/"+id)
+  }
+
   delete(id:number):Observable<Stock[]>{
     return this.http.delete<Stock[]>(this.baseUrl+"/"+id)
+  }
+
+  update(stock:Stock, id:number):Observable<Stock[]>{
+    return this.http.put<Stock[]>(this.baseUrl+"/"+id, stock)
   }
 
 }
