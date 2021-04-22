@@ -21,6 +21,7 @@ import { MatCardModule } from '@angular/material/card';
 import { StocksReadComponent } from './pages/stocks-read/stocks-read.component'
 import {MatTableModule} from '@angular/material/table';
 import { StocksUpdateComponent } from './pages/stocks-update/stocks-update.component';
+import { LoginListComponent } from './pages/login-list/login-list.component';
 
 
 
@@ -33,7 +34,8 @@ import { StocksUpdateComponent } from './pages/stocks-update/stocks-update.compo
     TitleComponent,
     StocksCreateComponent,
     StocksReadComponent,
-    StocksUpdateComponent
+    StocksUpdateComponent,
+    LoginListComponent
   ],
   imports: [
     BrowserModule,

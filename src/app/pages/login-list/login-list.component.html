@@ -1,0 +1,17 @@
+<app-title text="Usuarios"></app-title>
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>e-mail</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let login of logins">
+            <td>{{login.name}}</td>
+            <td>{{login.email}}</td>
+            <td><button (click)="editar(login.id)">Edit</button></td>
+        </tr>
+    </tbody>
+</table>
