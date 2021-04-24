@@ -1,4 +1,4 @@
 export const environment = {
   production: true, 
-  baseUrl: "http://msansone.com.br:8080/"
+  baseUrl: "https://msansone.com.br:8080/"
 };
