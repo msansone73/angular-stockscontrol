@@ -1,7 +1,8 @@
+import { TokenInterceptorService } from './services/token-interceptor.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import {HttpClientModule}  from '@angular/common/http'
+import {HttpClientModule, HTTP_INTERCEPTORS}  from '@angular/common/http'
 
 import { FormsModule } from '@angular/forms'
 import { MatFormFieldModule } from '@angular/material/form-field'
@@ -19,10 +20,9 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { MatCardModule } from '@angular/material/card';
 import { StocksReadComponent } from './pages/stocks-read/stocks-read.component'
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { StocksUpdateComponent } from './pages/stocks-update/stocks-update.component';
 import { LoginListComponent } from './pages/login-list/login-list.component';
-
 
 
 @NgModule({
@@ -50,7 +50,11 @@ import { LoginListComponent } from './pages/login-list/login-list.component';
     MatCardModule,
     MatTableModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService, 
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

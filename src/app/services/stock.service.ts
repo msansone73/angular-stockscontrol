@@ -12,19 +12,11 @@ export class StockService {
 
   baseUrl = environment.baseUrl+"stock"
 
-  httpOptions={};
 
   constructor(
               private snackBar: MatSnackBar,
               private http: HttpClient) { 
                 
-                var headers_object = new HttpHeaders();
-                headers_object.append('Content-Type', 'application/json');
-                headers_object.append("Authorization", "Basic " + btoa("admin:password"));
-            
-                this.httpOptions = {
-                  headers: headers_object
-                };
 
               }
 
@@ -38,23 +30,27 @@ export class StockService {
   }
 
   create(stock:Stock): Observable<Stock>{
-    return this.http.post<Stock>(this.baseUrl, stock, this.httpOptions)
+    return this.http.post<Stock>(this.baseUrl, stock)
   }
 
   read():Observable<Stock[]>{
-    return this.http.get<Stock[]>(this.baseUrl, this.httpOptions)
+
+
+
+    return this.http.get<Stock[]>(this.baseUrl)
   }
 
   readById(id: number):Observable<Stock>{
-    return this.http.get<Stock>(this.baseUrl+"/"+id, this.httpOptions)
+    return this.http.get<Stock>(this.baseUrl+"/"+id)
   }
 
   delete(id:number):Observable<Stock[]>{
-    return this.http.delete<Stock[]>(this.baseUrl+"/"+id, this.httpOptions)
+    return this.http.delete<Stock[]>(this.baseUrl+"/"+id)
   }
 
+
   update(stock:Stock, id:number):Observable<Stock[]>{
-    return this.http.put<Stock[]>(this.baseUrl+"/"+id, stock, this.httpOptions)
+    return this.http.put<Stock[]>(this.baseUrl+"/"+id, stock)
   }
 
 }
