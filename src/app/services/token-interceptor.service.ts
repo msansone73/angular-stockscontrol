@@ -13,9 +13,7 @@ export class TokenInterceptorService implements HttpInterceptor{
       {
         setHeaders: {
           'Authorization': 'Basic ' + btoa('admin:password'),
-          'Content-Type':'application/json',
-          'Connection':'keep-alive', 
-          'Cookie':'JSESSIONID=ADA9F62BFD86459C94042E13315E7F61'
+          'Content-Type':'application/json'
         }
       }
     )
