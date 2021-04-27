@@ -11,38 +11,25 @@ export class LoginService {
 
   baseUrl= environment.baseUrl+"login"
 
-  httpOptions={};
-
-
-  constructor(private http: HttpClient) {
-
-    var headers_object = new HttpHeaders();
-    headers_object.append('Content-Type', 'application/json');
-    headers_object.append("Authorization", "Basic " + btoa("admin:password"));
-
-    this.httpOptions = {
-      headers: headers_object
-    };
-
-   }
+  constructor(private http: HttpClient) {}
 
   
   create(login:Login):Observable<Login>{
-    return this.http.post<Login>(this.baseUrl, login, this.httpOptions)
+    return this.http.post<Login>(this.baseUrl, login)
   }
 
   logar(login:string, password: string): Observable<Login>{
     const loginObs={'login':login, 'password':password}
-    return this.http.post<Login>(this.baseUrl, loginObs, this.httpOptions)
+    return this.http.post<Login>(this.baseUrl, loginObs)
   }
 
   readAll():Observable<Login[]>{
 
-    return this.http.get<Login[]>(this.baseUrl, this.httpOptions)
+    return this.http.get<Login[]>(this.baseUrl)
   }
 
   readById(id:number):Observable<Login>{
-    return this.http.get<Login>(this.baseUrl+"/"+id, this.httpOptions)
+    return this.http.get<Login>(this.baseUrl+"/"+id)
   }
 
 }
