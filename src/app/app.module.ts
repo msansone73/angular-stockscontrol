@@ -23,6 +23,7 @@ import { StocksReadComponent } from './pages/stocks-read/stocks-read.component'
 import { MatTableModule } from '@angular/material/table';
 import { StocksUpdateComponent } from './pages/stocks-update/stocks-update.component';
 import { LoginListComponent } from './pages/login-list/login-list.component';
+import { LoginComponent } from './pages/login/login.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { LoginListComponent } from './pages/login-list/login-list.component';
     StocksCreateComponent,
     StocksReadComponent,
     StocksUpdateComponent,
-    LoginListComponent
+    LoginListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

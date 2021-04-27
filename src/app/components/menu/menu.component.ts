@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-menu',
@@ -12,5 +11,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+
 
 }

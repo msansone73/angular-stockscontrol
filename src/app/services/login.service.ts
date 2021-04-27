@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { Login } from './../model/login.model';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
@@ -20,11 +20,10 @@ export class LoginService {
 
   logar(login:string, password: string): Observable<Login>{
     const loginObs={'login':login, 'password':password}
-    return this.http.post<Login>(this.baseUrl, loginObs)
+    return this.http.post<Login>(this.baseUrl+"/autenticar", loginObs)
   }
 
   readAll():Observable<Login[]>{
-
     return this.http.get<Login[]>(this.baseUrl)
   }
 
