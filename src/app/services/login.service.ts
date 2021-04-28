@@ -18,8 +18,8 @@ export class LoginService {
     return this.http.post<Login>(this.baseUrl, login)
   }
 
-  logar(login:string, password: string): Observable<Login>{
-    const loginObs={'login':login, 'password':password}
+  logar(email:string, password: string): Observable<Login>{
+    const loginObs={'email':email, 'password':password}
     return this.http.post<Login>(this.baseUrl+"/autenticar", loginObs)
   }
 

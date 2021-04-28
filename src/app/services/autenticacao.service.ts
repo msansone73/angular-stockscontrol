@@ -7,22 +7,22 @@ import { Injectable } from '@angular/core';
 })
 export class AutenticacaoService {
 
-  static usuario:Login={ nome:'', email:'', login:'', password:''}
+  static usuario:Login={ nome:'', email:'', password:''}
 
   constructor(private loginService:LoginService) {}
 
 
-  logar(login:string, password: string){
-    this.loginService.logar(login,password)
+  logar(email:string, password: string){
+    this.loginService.logar(email,password)
       .subscribe( l => AutenticacaoService.usuario=l)
   }
 
   logout(){
-    AutenticacaoService.usuario={ nome:'', email:'', login:'', password:''}
+    AutenticacaoService.usuario={ nome:'', email:'',  password:''}
   }
 
   getUsuario():string{
-    return AutenticacaoService.usuario.login
+    return AutenticacaoService.usuario.email
   }
 
   isLogged():boolean{

@@ -17,7 +17,7 @@ export  class LoginComponent implements OnInit {
   }
 
   logar(){
-    this.autenticacaoService.logar("msansone","senha")
+    this.autenticacaoService.logar("msansone@gmail.com","senha")
     this.usuario=AutenticacaoService.usuario
   }
 
