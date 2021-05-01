@@ -1,32 +1,36 @@
 import { LoginService } from 'src/app/services/login.service';
 import { Login } from './../model/login.model';
 import { Injectable } from '@angular/core';
+import { UsuarioStoreService } from './usuario.store.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AutenticacaoService {
 
-  static usuario:Login={ nome:'', email:'', password:''}
 
-  constructor(private loginService:LoginService) {}
+  constructor(private loginService:LoginService, 
+    private usuarioStore: UsuarioStoreService) {}
 
 
   logar(email:string, password: string){
+    console.log('logar('+email+','+password+')')
     this.loginService.logar(email,password)
-      .subscribe( l => AutenticacaoService.usuario=l)
+      .subscribe( 
+        l => this.usuarioStore.sendMessage(l)
+        )
   }
 
   logout(){
-    AutenticacaoService.usuario={ nome:'', email:'',  password:''}
+    this.usuarioStore.sendMessage({ name:'', email:'',  password:''})
   }
 
   getUsuario():string{
-    return AutenticacaoService.usuario.email
+    return UsuarioStoreService.usuario.email
   }
 
   isLogged():boolean{
-    return AutenticacaoService.usuario!=null
+    return UsuarioStoreService.usuario.email!=''
   }
 
 }

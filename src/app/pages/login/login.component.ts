@@ -1,3 +1,4 @@
+import { UsuarioStoreService } from './../../services/usuario.store.service';
 import { Login } from './../../model/login.model';
 import { Component, OnInit } from '@angular/core';
 import { AutenticacaoService } from 'src/app/services/autenticacao.service';
@@ -9,21 +10,20 @@ import { AutenticacaoService } from 'src/app/services/autenticacao.service';
 })
 export  class LoginComponent implements OnInit {
 
-  usuario:Login = AutenticacaoService.usuario 
+  usuario:Login={ name:'', email:'',  password:''} 
 
-  constructor(private autenticacaoService:AutenticacaoService) { }
+  constructor(private autenticacaoService:AutenticacaoService,
+    ) { }
 
   ngOnInit(): void {
   }
 
   logar(){
     this.autenticacaoService.logar("msansone@gmail.com","senha")
-    this.usuario=AutenticacaoService.usuario
   }
 
   logout(){
     this.autenticacaoService.logout()
-    this.usuario=AutenticacaoService.usuario
   }
 
 }
