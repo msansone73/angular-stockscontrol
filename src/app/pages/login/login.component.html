@@ -1,6 +1,17 @@
-<p>login works!</p>
+<section>
+    <div>
+        <div>e-mail<input type="text" id="inputLogin" name="inputLogin" [(ngModel)]="inputLogin"/> </div>
+        <div>senha <input type="text" id="inputSenha" name="inputSenha" [(ngModel)]="inputSenha"/> </div>
+        <div></div>
+        
+    </div>
+</section>
+
 
 <button (click)="logar()">logar</button><br>
 <button (click)="logout()">logout</button><br>
 
 Usuario={{this.usuario.email}}<br>
+login={{inputLogin}}
+senha={{inputSenha}}
+<p>{{mensagem}}</p>

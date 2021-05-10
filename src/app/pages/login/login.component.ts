@@ -10,6 +10,10 @@ import { AutenticacaoService } from 'src/app/services/autenticacao.service';
 })
 export  class LoginComponent implements OnInit {
 
+  inputLogin=''
+  inputSenha=''
+  mensagem=''
+
   usuario:Login={ name:'', email:'',  password:''} 
 
   constructor(private autenticacaoService:AutenticacaoService,
@@ -19,7 +23,10 @@ export  class LoginComponent implements OnInit {
   }
 
   logar(){
-    this.autenticacaoService.logar("msansone@gmail.com","senha")
+    //this.autenticacaoService.logar("msansone@gmail.com","senha")
+    this.autenticacaoService.logar(this.inputLogin,this.inputSenha)
+    this.mensagem=UsuarioStoreService.erro
+    UsuarioStoreService.erro=''
   }
 
   logout(){

@@ -1,3 +1,4 @@
+import { LoginResponse } from './../model/login.resposne.model';
 import { Observable } from 'rxjs';
 import { Login } from './../model/login.model';
 import { HttpClient } from '@angular/common/http';
@@ -18,9 +19,9 @@ export class LoginService {
     return this.http.post<Login>(this.baseUrl, login)
   }
 
-  logar(email:string, password: string): Observable<Login>{
+  logar(email:string, password: string): Observable<LoginResponse>{
     const loginObs={'email':email, 'password':password}
-    return this.http.post<Login>(this.baseUrl+"/autenticar", loginObs)
+    return this.http.post<LoginResponse>(this.baseUrl+"/autenticar", loginObs)
   }
 
   readAll():Observable<Login[]>{

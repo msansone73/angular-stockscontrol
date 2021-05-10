@@ -14,11 +14,27 @@ export class AutenticacaoService {
 
 
   logar(email:string, password: string){
-    console.log('logar('+email+','+password+')')
+    
     this.loginService.logar(email,password)
       .subscribe( 
-        l => this.usuarioStore.sendMessage(l)
-        )
+        l => {
+          if (l==null)
+          {
+            UsuarioStoreService.erro='Retorno nulo!'  
+            console.log('retorno nulo!')
+          } else {
+            if(l.erro!=null){
+              UsuarioStoreService.erro=l.erro.description
+              console.log(l.erro.description)
+            } else {
+              this.usuarioStore.sendMessage(l.login)
+            }
+          }        
+        }
+        ,err=>{
+          UsuarioStoreService.erro=err
+          console.log('erro=',err.message)
+        })
   }
 
   logout(){

@@ -11,6 +11,7 @@ export class UsuarioStoreService {
   constructor() { }
 
   static usuario:Login={ name:'', email:'',  password:''}
+  static erro=''
 
   private subject = new Subject<Login>();
 
