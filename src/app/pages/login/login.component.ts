@@ -23,7 +23,6 @@ export  class LoginComponent implements OnInit {
   }
 
   logar(){
-    //this.autenticacaoService.logar("msansone@gmail.com","senha")
     this.autenticacaoService.logar(this.inputLogin,this.inputSenha)
     this.mensagem=UsuarioStoreService.erro
     UsuarioStoreService.erro=''

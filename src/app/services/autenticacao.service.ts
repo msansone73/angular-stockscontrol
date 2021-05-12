@@ -30,6 +30,7 @@ export class AutenticacaoService {
               this.usuarioStore.sendMessage(l.login)
             }
           }        
+        
         }
         ,err=>{
           UsuarioStoreService.erro=err
@@ -38,7 +39,13 @@ export class AutenticacaoService {
   }
 
   logout(){
-    this.usuarioStore.sendMessage({ name:'', email:'',  password:''})
+    this.loginService.logout().subscribe(
+      b =>{
+        this.usuarioStore.sendMessage({ name:'', email:'',  password:''})
+      }
+    )
+    //this.usuarioStore.sendMessage({ name:'', email:'',  password:''})
+
   }
 
   getUsuario():string{

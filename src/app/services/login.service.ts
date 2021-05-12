@@ -24,6 +24,13 @@ export class LoginService {
     return this.http.post<LoginResponse>(this.baseUrl+"/autenticar", loginObs)
   }
 
+  logout():Observable<boolean>{
+    return new Observable( observer => {
+      observer.next()
+      observer.complete()
+   })
+  }
+
   readAll():Observable<Login[]>{
     return this.http.get<Login[]>(this.baseUrl)
   }

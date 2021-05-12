@@ -10,13 +10,22 @@ import { Login } from 'src/app/model/login.model';
 export class MenuComponent implements OnInit{
 
   usuario:Login={ name:'', email:'',  password:''}
+  display="none"
 
   constructor(private usuarioStore: UsuarioStoreService) { }
 
   ngOnInit(): void {
 
     this.usuarioStore.onMessage().subscribe(
-      n=> this.usuario=n
+      n=> {
+        this.usuario=n
+        if (n.email==''){
+          this.display="none"
+        } else {
+          this.display="block"
+
+        }
+      }
     )
 
   }
