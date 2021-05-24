@@ -1,34 +1,21 @@
-<div class="topnav" id="myTopnav">
-    <a routerLink="" class="active">Home</a>
-    <div class="dropdown">
-      <button class="dropbtn">Stock
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-        <a routerLink="stocks">list</a>
-        <a routerLink="stocks-create">create</a>
-      </div>
-    </div>
-    <div class="dropdown"  style="display: {{display}}">
-      <button class="dropbtn">Movimentos
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
-      </div>
-    </div>
-    <div class="dropdown">
-      <button class="dropbtn">Gerencial
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-        <a routerLink="login-list">Usuarios</a>
-        <a routerLink="stocks-create">Contas</a>
-      </div>
-    </div>    
-    <a routerLink="login">Login</a>
-    <a href="#about">About{{usuario.name}}</a>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-  </div>
+<mat-grid-list cols="5">
+<button mat-flat-button (click)="navTo('home')" >Home</button>
+
+<button mat-flat-button [matMenuTriggerFor]="appMenu" >Menu</button>
+<mat-menu #appMenu="matMenu">
+  <button mat-menu-item>item 1</button>
+  <button mat-menu-item>item 2</button>
+</mat-menu>
+
+<button mat-flat-button [matMenuTriggerFor]="appMenuStock"  style="display: {{display}}">Stock</button>
+  <mat-menu #appMenuStock="matMenu">
+    <button mat-menu-item  (click)="onStock()">list</button>
+    <button mat-menu-item (click)="navTo('stocks-create')">Edit</button>
+</mat-menu>
+
+{{usuario.name}}
+<button (click)="navTo('login')"> login</button>
+<button (click)="logout()">logout</button>
+</mat-grid-list>
+
+

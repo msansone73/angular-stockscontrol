@@ -11,6 +11,7 @@ import { LoginListComponent } from './pages/login-list/login-list.component';
 
 const routes: Routes = [
   {  path: "", component: HomeComponent  },
+  {  path: "home", component: HomeComponent  },
   {  path: "stocks", component: StocksComponent , canActivate: [AutenticacaoGuard] },
   {  path: "stocks-create", component: StocksCreateComponent  },
   {  path: "stocks-update/:id" , component: StocksUpdateComponent},

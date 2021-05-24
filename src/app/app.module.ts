@@ -24,6 +24,9 @@ import { MatTableModule } from '@angular/material/table';
 import { StocksUpdateComponent } from './pages/stocks-update/stocks-update.component';
 import { LoginListComponent } from './pages/login-list/login-list.component';
 import { LoginComponent } from './pages/login/login.component';
+import { MatMenuModule } from '@angular/material/menu'
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -50,7 +53,10 @@ import { LoginComponent } from './pages/login/login.component';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    MatTableModule
+    MatTableModule,
+    MatMenuModule,
+    MatGridListModule,
+    MatIconModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
